@@ -6,10 +6,35 @@
 
     <!--find 여러개-->
     <!--여러개 파일을 DTO로 받아야 하고, 그 경로를 구체적으로 적어줘야 한다.-->
-    <select id="findAllMenus" resultType="com.example.gradleservlet.dto.MenuDTO">
-        SELECT * FROM menu
+    <select id="findAllList" resultType="com.example.todo.todo_first.dto.TodoDTO">
+        SELECT * FROM tbl_todo
     </select>
     <!--메뉴이름으로 해당 dto 찾기-->
 
+
+    <select id="findByTno" resultType="com.example.todo.todo_first.dto.TodoDTO">
+                    <!--mybatis에서 자동적으로 컬럼이름과 매핑해준다,-->
+        select * from tbl_todo where tno = #{tno}
+
+    </select>
+
+    <insert id="insert">
+
+        insert into tbl_todo (title, memo) values(#{title}, #{memo});
+<!--        insert into tbl_todo (title, memo) values('abc','bbc');-->
+    </insert>
+
+    <update id="update">
+
+        update tbl_todo set title = #{title} , memo = #{memo} where tno = #{tno};
+
+    </update>
+
+
+
+    <delete id="delete">
+
+        delete from tbl_todo where tno = #{tno}
+    </delete>
 
 </mapper>

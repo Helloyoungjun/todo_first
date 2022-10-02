@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 
-public class todoDTO {
+public class TodoDTO {
     private Integer tno;
     private String title;
     private String memo;

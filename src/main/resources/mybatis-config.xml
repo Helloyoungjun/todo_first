@@ -15,6 +15,6 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="mapper/MenuMapper.xml"/>
+        <mapper resource="mapper/todoMapper.xml"/>
     </mappers>
 </configuration>

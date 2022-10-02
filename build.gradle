@@ -51,6 +51,11 @@ dependencies {
 
     //mybatis 의존성 주입
     implementation 'org.mybatis:mybatis:3.5.6'
+
+    //jstl 의존성
+    // https://mvnrepository.com/artifact/javax.servlet/jstl
+    implementation 'javax.servlet:jstl:1.2'
+
 }
 
 test {
