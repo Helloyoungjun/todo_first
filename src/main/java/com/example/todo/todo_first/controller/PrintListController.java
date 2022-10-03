@@ -14,10 +14,13 @@ import java.util.List;
 @Slf4j
 @WebServlet(name = "PrintListController", value = "/todo/list")
 public class PrintListController extends HttpServlet {
+
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html; charset=UTF-8");
 
         // db에서 전체 list를 다 뽑아오는 로직
         List<TodoDTO> AllList = TodoDAO.INSTANCE.findAllList();

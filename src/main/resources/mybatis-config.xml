@@ -16,5 +16,7 @@
     </environments>
     <mappers>
         <mapper resource="mapper/todoMapper.xml"/>
+        <mapper resource="mapper/selectPageMapper.xml"/>
+
     </mappers>
 </configuration>

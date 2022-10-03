@@ -1,7 +1,9 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+
+
 <%--jstl 추가 코드--%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ include file="../includes/header.jsp"%>
+<%@ include file="../includes/header.jsp" %>
 
 <div class="container-fluid px-4">
     <h1 class="mt-4">Tables</h1>
@@ -18,7 +20,9 @@
         <div class="card-header">
             <i class="fas fa-table me-1"></i>
             DataTable Example
-            <a href="/todo/add"><button type="button" class="btn btn-lg btn-primary float-end" aria-disabled="true">Add</button></a>
+            <a href="/todo/add">
+                <button type="button" class="btn btn-lg btn-primary float-end" aria-disabled="true">Add</button>
+            </a>
         </div>
         <div class="card-body">
             <table class="table">
@@ -36,17 +40,43 @@
                 <%--item 으로 java 데이터를 받아서 var에다가 변수명을 붙여준다.--%>
 
 
-                <c:forEach items="${list}" var="list1">
-                <tr>
-                    <th><a href="/todo/detail?tno=${list1.tno}"><c:out value="${list1.tno}"/><a/> </th>
-                    <td><c:out value="${list1.title}"/></td>
-                    <td><c:out value="${list1.memo}"/> </td>
-                    <td><c:out value="${list1.regDate}"/></td>
-                    <td><c:out value="${list1.complete}"/></td>
-                </tr>
+                <c:forEach items="${list}" var="list">
+                    <tr>
+                        <th><a href="/todo/detail?tno=${list.tno}"><c:out value="${list.tno}"/><a/></th>
+                        <td><c:out value="${list.title}"/></td>
+                        <td><c:out value="${list.memo}"/></td>
+                        <td><c:out value="${list.regDate}"/></td>
+                        <td>
+                            <c:if test="${list.complete}">
+                            <input class="form-check-input" name="complete" id="complete" type="checkbox"
+                                   placeholder="Complete" value="${list.complete}" checked/>
+                            </c:if>
+                            <c:if test="${!list.complete}">
+                                <input class="form-check-input" name="complete" id="complete" type="checkbox"
+                                       placeholder="Complete" value="${list.complete}"/>
+                            </c:if>
+                        </td>
+                    </tr>
                 </c:forEach>
                 </tbody>
+
+
             </table>
+            <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </nav>
+
+
+
+
 
         </div>
 
@@ -58,5 +88,4 @@
 </div>
 
 
-
-<%@ include file="../includes/footer.jsp"%>
+<%@ include file="../includes/footer.jsp" %>

@@ -1,7 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@include file="../includes/header.jsp"%>
 
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java"  pageEncoding="UTF-8" %>
+
 
 
 
@@ -32,7 +33,7 @@
                         <div class="row mt-4 mb-6">
                             <%--                <div class="d-grid"><a class="btn btn-primary btn-block" href="login.html">Create Account</a></div>--%>
                             <div class="form-floating col-md-6 d-grid">
-                                <button type="button" onclick="location.href='http://localhost:8083/todo/list';" class="btn btn-success btn-block">Go List</button>
+                                <button type="button" onclick="location.href='/todo/list';" class="btn btn-success btn-block">Go List</button>
                             </div>
                             <div class="form-floating col-md-6 d-grid">
                                 <button type="submit" class="btn btn-primary btn-block">Add</button>

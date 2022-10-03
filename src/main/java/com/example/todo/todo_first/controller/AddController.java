@@ -21,6 +21,9 @@ public class AddController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html; charset=UTF-8");
+
         // input 태그의 name 이름으로 불러옴
         String title = request.getParameter("title");
         String memo = request.getParameter("memo");
