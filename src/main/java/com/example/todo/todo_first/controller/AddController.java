@@ -34,7 +34,7 @@ public class AddController extends HttpServlet {
 
         System.out.println("insert 성공여부 "  + result);
 
-        response.sendRedirect("/todo/list");
+        response.sendRedirect("/todo/list?page=1");
 
 
 

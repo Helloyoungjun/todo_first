@@ -1,7 +1,9 @@
 package com.example.todo.todo_first.controller;
 
 import com.example.todo.todo_first.dao.TodoDAO;
+import com.example.todo.todo_first.dto.PageRequestDTO;
 import com.example.todo.todo_first.dto.TodoDTO;
+import com.sun.tools.javac.comp.Todo;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.servlet.ServletException;
@@ -21,7 +23,7 @@ public class PrintListController extends HttpServlet {
 
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
-
+/*
         // db에서 전체 list를 다 뽑아오는 로직
         List<TodoDTO> AllList = TodoDAO.INSTANCE.findAllList();
 
@@ -35,15 +37,34 @@ public class PrintListController extends HttpServlet {
         request.setAttribute("list" , AllList);
 
         // jsp 화면을 띄어준다.
+        request.getRequestDispatcher("/WEB-INF/views/contents/list.jsp").forward(request,response);*/
+
+
+
+
+        int page = Integer.parseInt(request.getParameter("page"));
+
+
+        PageRequestDTO pageRequestDTO = PageRequestDTO.builder().page(page).build();
+
+        List<TodoDTO>  AllList = TodoDAO.INSTANCE.pagination(pageRequestDTO);
+
+
+        AllList.forEach((list)->{log.info(String.valueOf(list));
+        });
+
+        request.setAttribute("list" , AllList);
+
+
         request.getRequestDispatcher("/WEB-INF/views/contents/list.jsp").forward(request,response);
-
-
-
 
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
+
 
     }
 }

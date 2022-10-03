@@ -41,7 +41,15 @@
 
 
                 <c:forEach items="${list}" var="list">
-                    <tr>
+
+
+
+                    <tr style=" font-weight: bolder;
+                        <c:if test='${list.complete }'>color : darkgrey;</c:if>
+                    <c:if test='${!list.complete }'>color : red;</c:if>
+                   ">
+
+
                         <th><a href="/todo/detail?tno=${list.tno}"><c:out value="${list.tno}"/><a/></th>
                         <td><c:out value="${list.title}"/></td>
                         <td><c:out value="${list.memo}"/></td>
@@ -49,14 +57,21 @@
                         <td>
                             <c:if test="${list.complete}">
                             <input class="form-check-input" name="complete" id="complete" type="checkbox"
-                                   placeholder="Complete" value="${list.complete}" checked/>
+                                   placeholder="Complete" value="${list.complete}" checked disabled/>
                             </c:if>
                             <c:if test="${!list.complete}">
                                 <input class="form-check-input" name="complete" id="complete" type="checkbox"
-                                       placeholder="Complete" value="${list.complete}"/>
+                                       placeholder="Complete" value="${list.complete}" disabled/>
                             </c:if>
                         </td>
                     </tr>
+
+
+
+
+
+
+
                 </c:forEach>
                 </tbody>
 
@@ -65,12 +80,12 @@
             <nav aria-label="Page navigation example">
             <ul class="pagination">
                 <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                <li class="page-item"><a class="page-link" href="#">5</a></li>
-                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                <li class="page-item"><a class="page-link" href="/todo/list?page=1">1</a></li>
+                <li class="page-item"><a class="page-link" href="/todo/list?page=2">2</a></li>
+                <li class="page-item"><a class="page-link" href="/todo/list?page=3">3</a></li>
+                <li class="page-item"><a class="page-link" href="/todo/list?page=4">4</a></li>
+                <li class="page-item"><a class="page-link" href="/todo/list?page=5">5</a></li>
+                <li class="page-item"><a class="page-link" href="/todo/list?page=#">Next</a></li>
             </ul>
         </nav>
 

@@ -39,6 +39,9 @@ public class UpdateController extends HttpServlet {
 
         String title = request.getParameter("title");
         String memo = request.getParameter("memo");
+
+        
+        // 박스가 체크되어있으면 파라미터가 있게 된다.
         String complete = (request.getParameter("complete"));
 
 

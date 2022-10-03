@@ -7,9 +7,8 @@
 
 
 <div>
-    안녕하세요 TODo 시작할게요
+    안녕하세요 TODO 시작할게요
 </div>
 <div class="d-grid gap-2">
-    <button class="btn btn-primary" type="button" onclick="location.href='http://localhost:8083/todo/list';">GO TO List</button>
+    <button class="btn btn-primary" type="button" onclick="location.href='http://localhost:8083/todo/list?page=1';">GO TO List</button>
 </div>
-<%@ include file="../includes/footer.jsp"%>

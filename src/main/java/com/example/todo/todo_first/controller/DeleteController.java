@@ -24,7 +24,7 @@ public class DeleteController extends HttpServlet {
 
         int result = TodoDAO.INSTANCE.deleteTodo(DTO);
 
-        response.sendRedirect("/todo/list");
+        response.sendRedirect("/todo/list?page=1");
 
 
 

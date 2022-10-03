@@ -56,7 +56,7 @@
                         <div class="row mt-4 mb-6">
                             <%--                <div class="d-grid"><a class="btn btn-primary btn-block" href="login.html">Create Account</a></div>--%>
                             <div class="form-floating col-md-6 d-grid">
-                                <button type="button" class="btn btn-success btn-block"  onclick="location.href='/todo/list'">Go List</button>
+                                <button type="button" class="btn btn-success btn-block"  onclick="location.href='/todo/list?page=1'">Go List</button>
                             </div>
                             <div class="form-floating col-md-6 d-grid">
                                 <button type="submit" class="btn btn-danger btn-block">update</button>

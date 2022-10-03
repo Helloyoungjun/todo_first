@@ -1,6 +1,7 @@
 package com.example.todo.todo_first.dao;
 
 import com.example.todo.todo_first.common.MyBatisUtil;
+import com.example.todo.todo_first.dto.PageRequestDTO;
 import com.example.todo.todo_first.dto.TodoDTO;
 import lombok.Cleanup;
 import org.apache.ibatis.session.SqlSession;
@@ -51,10 +52,8 @@ public enum TodoDAO {
 
 
 
-
-
-
     }
+
 
     /*tno 하나 받아서 실행*/
     public int deleteTodo(TodoDTO DTO) {
@@ -63,5 +62,17 @@ public enum TodoDAO {
         int deleteResult = session.delete("mapper.todoMapper.delete", DTO);
 
         return deleteResult;
+    }
+
+    // 페이지네이션
+
+    public List<TodoDTO> pagination (PageRequestDTO DTO){
+        @Cleanup SqlSession session = MyBatisUtil.INSTANCE.getSqlSessionFactory().openSession();
+
+
+        List<TodoDTO> todoDTOList = session.selectList("mapper.selectPageMapper.selectPage", DTO);
+
+        return todoDTOList;
+
     }
 }

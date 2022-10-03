@@ -1,4 +1,5 @@
 import com.example.todo.todo_first.dao.TodoDAO;
+import com.example.todo.todo_first.dto.PageRequestDTO;
 import com.example.todo.todo_first.dto.TodoDTO;
 import com.sun.tools.javac.comp.Todo;
 import lombok.extern.slf4j.Slf4j;
@@ -56,6 +57,21 @@ public class todoTest {
         System.out.println("delete 결과출력 :   " + deleteTodo);
     }
 
+    @Test
+    public void selectPage() {
+
+        // 페이징 해야할 테이블이 많기 떄문에, 재사용을 하고싶다.
+        // 전용 DTO 을 사용하는 방식
+        PageRequestDTO pageDTO = PageRequestDTO.builder().page(2).size(10).build();
+
+        List<TodoDTO> todoDTOList = TodoDAO.INSTANCE.pagination(pageDTO);
+
+
+
+        todoDTOList.forEach(todoDTO -> log.info(String.valueOf(todoDTO)));
+
+
+    }
 
 
 
