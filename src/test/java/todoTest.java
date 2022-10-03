@@ -32,7 +32,7 @@ public class todoTest {
     @Test
     void insertTodo(){
 
-        TodoDTO DTO = TodoDTO.builder().title("babc").memo("ccc").build();
+        TodoDTO DTO = TodoDTO.builder().title("b4abc").memo("ccc").build();
         int insertResult = TodoDAO.INSTANCE.insertTodo(DTO);
 
     System.out.println("insert 결과 출력     : " + insertResult );
